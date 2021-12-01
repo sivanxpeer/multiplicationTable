@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication table</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.884);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1 {
+        margin-top: 10px;
+        color: burlywood;
+    }
+    
+    /* th= table header, tr = table row,  */
+    table,
+    td,
+    th {
+        width: 100vmin;
+        height: 5vmin;
+        border: 1px solid burlywood;
+        /* make only one-line: */
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        width: 40px;
+        font-size: 16px;
+        text-align: center;
+        color: darkslateblue;
+    }
+    
+    th {
+        color: burlywood;
+    }
+
+      td:hover {
+        background-color: floralwhite;
+      }
+
+      .container-table {
+        /* background-color: #ccc; */
+        width: 100vmin;
+        height: 100vmin;
+        display: grid;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-table">
+      <h1>Learn Multiplication!</h1>
+      <table class="table"></table>
+    </div>
+
+    <script type="text/javascript">
+      const table = document.querySelector(".table");
+      let output = "";
+      for (let i = 1; i <= 10; i++) {
+        output += "</tr>";
+        for (let j = 1; j <= 20; j++) {
+          //display indices
+          //dont sidplay indices on 0,0
+          if (i == 1 && j == 1) {
+            //add X sign:
+            output += "<th>&times;</th>";
+          } else {
+            if (i == 1 || j == 1) output += "<th>" + i * j + "</th>";
+            else output += "<td>" + i * j + "</td>";
+          }
+        }
+        output += "</tr>";
+      }
+      table.innerHTML = output;
+    </script>
+  </body>
+</html>
